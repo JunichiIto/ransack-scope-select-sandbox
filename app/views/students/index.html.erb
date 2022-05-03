@@ -3,12 +3,13 @@
 <h1>Students</h1>
 
 <div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Show this student", student %>
-    </p>
+  <%= search_form_for @q do |f| %>
+    <%= f.select :for_select, Student::SCOPES_FOR_SELECT.map {|name| [t(".for_select_#{name}"), name]}, { include_blank: true } %>
+    <%= f.submit '検索' %>
   <% end %>
+  <ul>
+    <% @students.each do |student| %>
+      <%= render student %>
+    <% end %>
+  </ul>
 </div>
-
-<%= link_to "New student", new_student_path %>

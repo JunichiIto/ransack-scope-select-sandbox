@@ -3,7 +3,8 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all
+    @q = Student.order(:id).ransack(params[:q])
+    @students = @q.result
   end
 
   # GET /students/1 or /students/1.json

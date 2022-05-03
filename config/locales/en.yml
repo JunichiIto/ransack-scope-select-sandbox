@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  students:
+    index:
+      for_select_without_exams: '未受験'
+      for_select_with_exams: '受験済み'
+      for_select_with_good_score: '平均60点以上'
