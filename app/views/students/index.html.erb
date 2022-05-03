@@ -4,7 +4,8 @@
 
 <div id="students">
   <%= search_form_for @q do |f| %>
-    <%= f.select :for_select, Student::SCOPES_FOR_SELECT.map {|name| [t(".for_select_#{name}"), name]}, { include_blank: true } %>
+    <% options = Student::SCOPES_FOR_SELECT.map { |name| [t(".for_select_#{name}"), name] } %>
+    <%= f.select :for_select, options, { include_blank: true } %>
     <%= f.submit '検索' %>
   <% end %>
   <ul>
